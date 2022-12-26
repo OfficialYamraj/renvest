@@ -1,0 +1,508 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!--Page Title-->
+<section class="page-title-two bg-color-1 centred">
+  <div class="pattern-layer">
+    <div
+      class="pattern-1"
+      style="background-image: url(/static/images/shape/shape-9.png)"
+    ></div>
+    <div
+      class="pattern-2"
+      style="background-image: url(/static/images/shape/shape-10.png)"
+    ></div>
+  </div>
+  <div class="auto-container">
+    <div class="content-box clearfix">
+      <h1>My Profile</h1>
+      <ul class="bread-crumb clearfix">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li>My Profile</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!--End Page Title-->
+
+<!-- myprofile-section -->
+<section class="myprofile-section sec-pad">
+  <div class="auto-container">
+    <div class="title">
+      <h3>Submit Property</h3>
+    </div>
+    <div class="tabs-box">
+      <ul class="tab-btns tab-buttons clearfix">
+        <li class="tab-btn active-btn" data-tab="#tab-1">
+          <span>1</span>General Information
+        </li>
+        <li class="tab-btn" data-tab="#tab-2"><span>2</span>Gallery</li>
+        <li class="tab-btn" data-tab="#tab-3">
+          <span>3</span>Property Details
+        </li>
+        <li class="tab-btn" data-tab="#tab-4"><span>4</span>Location</li>
+        <li class="tab-btn" data-tab="#tab-5"><span>5</span>Floor Plan</li>
+      </ul>
+      <div class="tabs-content">
+        <div class="tab active-tab" id="tab-1">
+          <div class="general-information">
+            <h4><i class="fa-solid fa-circle-info"></i></i>General Information:</h4>
+            <div class="inner-box default-form">
+              <div class="row clearfix">
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Property Title</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Contemporary Apartment">
+                          Contemporary Apartment
+                        </option>
+                        <option value="1">Apartment One</option>
+                        <option value="2">Apartment Two</option>
+                        <option value="3">Apartment Three</option>
+                        <option value="4">Apartment Four</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Address</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Address of Your Property">
+                          Address of Your Property
+                        </option>
+                        <option value="1">Address One</option>
+                        <option value="2">Address Two</option>
+                        <option value="3">Address Three</option>
+                        <option value="4">Address Four</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Neighborhood</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Brooklyn">Brooklyn</option>
+                        <option value="1">Brooklyn One</option>
+                        <option value="2">Address Two</option>
+                        <option value="3">Brooklyn Three</option>
+                        <option value="4">Brooklyn Four</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Select Country</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Select Country">
+                          Select Country
+                        </option>
+                        <option value="1">USA</option>
+                        <option value="2">UK</option>
+                        <option value="3">Canada</option>
+                        <option value="4">Maxico</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Select State</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Select State">
+                          Select State
+                        </option>
+                        <option value="1">New York</option>
+                        <option value="2">California</option>
+                        <option value="3">London</option>
+                        <option value="4">Chicago</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Select City</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Select City">Select City</option>
+                        <option value="1">New York</option>
+                        <option value="2">California</option>
+                        <option value="3">London</option>
+                        <option value="4">Chicago</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Zip/Postal Code</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Zip/Postal Code">
+                          Zip/Postal Code
+                        </option>
+                        <option value="1">4025</option>
+                        <option value="2">6528</option>
+                        <option value="3">0028</option>
+                        <option value="4">other</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Property Type</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Property Type">
+                          Property Type
+                        </option>
+                        <option value="1">Commersial</option>
+                        <option value="2">Tourist</option>
+                        <option value="3">Contemporary</option>
+                        <option value="4">Apartment</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Property Status</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Property Status">
+                          Property Status
+                        </option>
+                        <option value="1">For Sale</option>
+                        <option value="2">Not Sale</option>
+                        <option value="3">Sold Out</option>
+                        <option value="4">Offer Sale</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Select Price</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Select Price">
+                          Select Price
+                        </option>
+                        <option value="1">$2500</option>
+                        <option value="2">$3000</option>
+                        <option value="3">$4000</option>
+                        <option value="4">Othre</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Description</label>
+                    <textarea placeholder="Enter your text"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab" id="tab-2">
+          <div class="gallery-box">
+            <h4><i class="fa-solid fa-grip"></i></i>Your Gallery:</h4>
+            <div class="upload-inner centred">
+              <i class="fal fa-cloud-upload"></i>
+              <div class="upload-box">
+                <input type="file" id="check1" />
+                <label for="check1">Click here to upload your image</label>
+              </div>
+            </div>
+            <a href="profile.html" class="theme-btn btn-one">Add Images</a>
+          </div>
+        </div>
+        <div class="tab" id="tab-3">
+          <div class="property-details">
+            <h4><i class="fa-solid fa-sign-hanging"></i></i>Property Details:</h4>
+            <div class="inner-box default-form">
+              <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Property ID</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Property ID">Property ID</option>
+                        <option value="1">ZOP251C</option>
+                        <option value="2">ZOP251D</option>
+                        <option value="3">ZOP251E</option>
+                        <option value="4">ZOP251F</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Building Age</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Building Age">
+                          Building Age
+                        </option>
+                        <option value="1">2 to 5 Years</option>
+                        <option value="2">2 to 6 Years</option>
+                        <option value="3">2 to 7 Years</option>
+                        <option value="4">2 to 8 Years</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Bedrooms</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Bedrooms">Bedrooms</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Bathrooms</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Bathrooms">Bathrooms</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Parking</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Parking">Parking</option>
+                        <option value="1">Parking 02</option>
+                        <option value="2">Parking 03</option>
+                        <option value="3">Parking 03</option>
+                        <option value="4">Parking 04</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Storage Room</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Storage Room">
+                          Storage Room
+                        </option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul class="other-option clearfix">
+              <li>
+                <div class="radio-box">
+                  <input type="checkbox" id="check4" checked="" />
+                  <label for="check4">Air Conditioned</label>
+                </div>
+              </li>
+              <li>
+                <div class="radio-box">
+                  <input type="checkbox" id="check5" />
+                  <label for="check5">Swimming Pool</label>
+                </div>
+              </li>
+              <li>
+                <div class="radio-box">
+                  <input type="checkbox" id="check6" checked="" />
+                  <label for="check6">Washer & Dryer</label>
+                </div>
+              </li>
+              <li>
+                <div class="radio-box">
+                  <input type="checkbox" id="check7" />
+                  <label for="check7">Laundry</label>
+                </div>
+              </li>
+              <li>
+                <div class="radio-box">
+                  <input type="checkbox" id="check8" />
+                  <label for="check8">Gym</label>
+                </div>
+              </li>
+              <li>
+                <div class="radio-box">
+                  <input type="checkbox" id="check9" />
+                  <label for="check9">Basketball Court</label>
+                </div>
+              </li>
+              <li>
+                <div class="radio-box">
+                  <input type="checkbox" id="check10" />
+                  <label for="check10">Refrigerator</label>
+                </div>
+              </li>
+            </ul>
+            <h6>Property Documents</h6>
+            <div class="upload-inner centred">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+              <div class="upload-box">
+                <input type="file" id="check2" />
+                <label for="check2">Click here to upload your image</label>
+              </div>
+            </div>
+            <a href="profile.html" class="theme-btn btn-one">Add Images</a>
+          </div>
+        </div>
+        <div class="tab" id="tab-4">
+          <div class="gallery-box">
+            <h4><i class="fa-solid fa-map-pin"></i>Location:</h4>
+            <div class="inner-box default-form">
+              <div class="row clearfix">
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Google Maps Address</label>
+                    <input
+                      type="text"
+                      name="map_address"
+                      placeholder="Tamplate"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Friendly Address</label>
+                    <input
+                      type="text"
+                      name="friendly_address"
+                      placeholder="Template-path"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Longitude</label>
+                    <input type="text" placeholder="-205.421560" />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Latitude</label>
+                    <input type="text" placeholder="32.963381" />
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Regions</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Regions">Regions</option>
+                        <option value="1">New York</option>
+                        <option value="2">California</option>
+                        <option value="2">London</option>
+                        <option value="2">Chicago</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="google-map-area">
+              <div
+                class="google-map"
+                id="contact-google-map"
+                data-map-lat="40.712776"
+                data-map-lng="-74.005974"
+                data-icon-path="/static/images/icons/map-marker.png"
+                data-map-title="Brooklyn, New York, United Kingdom"
+                data-map-zoom="12"
+                data-markers='{
+                                            "marker-1": [40.712776, -74.005974, "<h4>Branch Office</h4><p>77/99 New York</p>","/static/images/icons/map-marker.png"]
+                                        }'
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="tab" id="tab-5">
+          <div class="gallery-box">
+            <h4><i class="fa-solid fa-ruler-combined"></i>Floor Plan:</h4>
+            <div class="inner-box default-form">
+              <div class="row clearfix">
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Select Floor</label>
+                    <div class="select-box">
+                      <select class="wide">
+                        <option data-display="Select Floor">
+                          Select Floor
+                        </option>
+                        <option value="1">First Floor</option>
+                        <option value="2">Second Floor</option>
+                        <option value="2">Third Floor</option>
+                        <option value="2">Four Floor</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Floor Plan Title</label>
+                    <input
+                      type="text"
+                      name="flor_plan"
+                      placeholder="Floor Plan Title"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Size In Sq Ft</label>
+                    <input type="text" placeholder="2412 Sq Ft" />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Size Of Rooms In Sq Ft</label>
+                    <input type="text" placeholder="150 Sq Ft" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="upload-inner centred">
+              <i class="fal fa-cloud-upload"></i>
+              <div class="upload-box">
+                <input type="file" id="check3" />
+                <label for="check3">Click here to upload your image</label>
+              </div>
+            </div>
+            <a href="profile.html" class="theme-btn btn-one">Add Images</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- myprofile-section end -->
+
+{% endblock content %}

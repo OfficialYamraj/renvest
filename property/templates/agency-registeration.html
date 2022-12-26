@@ -1,0 +1,128 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!--Page Title-->
+<section class="page-title-two bg-color-1 centred">
+  <div class="pattern-layer">
+    <div
+      class="pattern-1"
+      style="background-image: url(/static/images/shape/shape-9.png)"
+    ></div>
+    <div
+      class="pattern-2"
+      style="background-image: url(/static/images/shape/shape-10.png)"
+    ></div>
+  </div>
+  <div class="auto-container">
+    <div class="content-box clearfix">
+      <h1>Agency Registeration</h1>
+      <ul class="bread-crumb clearfix">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li>Agency Registeration</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!--End Page Title-->
+
+<!-- myprofile-section -->
+<section class="myprofile-section sec-pad">
+  <div class="auto-container">
+    <div class="title">
+      <h3>Agency Registeration</h3>
+    </div>
+    <div class="tabs-box">
+      <div class="tabs-content">
+        <div class="tab active-tab" id="tab-1">
+          <div class="general-information">
+            <h4><i class="fa-solid fa-circle-info"></i></i>General Company Information:</h4>
+            <div class="inner-box default-form">
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row clearfix">
+                  <div class="col-lg-6 col-md-6 col-sm-12 column">
+                    <div class="field-input">
+                      <label>Agency Name</label>
+                      <input
+                        type="text"
+                        name="agency_name"
+                        placeholder="Agency Name"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 column">
+                    <div class="field-input">
+                      <label>Agency Tagline</label>
+                      <input
+                        type="text"
+                        name="agency_tagline"
+                        placeholder="Agency Tagline"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 column">
+                    <div class="field-input">
+                      <label>Contact Number</label>
+                      <input
+                        type="text"
+                        name="agency_phone"
+                        placeholder="Contact Number"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 column">
+                    <div class="field-input">
+                      <label>Agency Email</label>
+                      <input
+                        type="email"
+                        name="agency_email"
+                        placeholder="Email"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 column">
+                    <div class="field-input">
+                      <label>Description</label>
+                      <textarea placeholder="Enter your text" name="agency_description"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 column">
+                    <div class="field-input">
+                      <label>Facbook</label>
+                      <input
+                        type="text"
+                        name="agency_facebook"
+                        placeholder="Facebook Link"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 column">
+                    <div class="field-input">
+                      <label>Instagram</label>
+                      <input
+                        type="text"
+                        name="agency_instagram"
+                        placeholder="Instagram Link"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 column">
+                    <div class="field-input">
+                      <label>Profile Picture</label>
+                      <input class="form-control  col-md-12" name="agency_image" id="formFileSm" type="file" />
+                    </div>
+                  </div>
+                </div>
+                  <button type="submit" class="theme-btn btn-one">
+                    Register Agency
+                  </button>
+              </form>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- myprofile-section end -->
+
+{% endblock content %}

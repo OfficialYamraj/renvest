@@ -1,0 +1,135 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!--Page Title-->
+<section class="page-title-two bg-color-1 centred">
+  <div class="pattern-layer">
+    <div
+      class="pattern-1"
+      style="background-image: url(/static/images/shape/shape-9.png)"
+    ></div>
+    <div
+      class="pattern-2"
+      style="background-image: url(/static/images/shape/shape-10.png)"
+    ></div>
+  </div>
+  <div class="auto-container">
+    <div class="content-box clearfix">
+      <h1>Agent Registeration</h1>
+      <ul class="bread-crumb clearfix">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li>Agent Registeration</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!--End Page Title-->
+
+<!-- myprofile-section -->
+<section class="myprofile-section sec-pad">
+  <div class="auto-container">
+    <div class="title">
+      <h3>Agent Registeration</h3>
+    </div>
+    <div class="tabs-box">
+      <div class="tabs-content">
+        <div class="tab active-tab" id="tab-1">
+          <div class="general-information">
+            <h4><i class="fa-solid fa-circle-info"></i></i>General Information:</h4>
+            <div class="inner-box default-form">
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+              <div class="row clearfix">
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                    <div class="field-input">
+                      <label>Agency Name</label>
+                      <div class="select-box">
+                        <select class="wide" name="agency">
+                          <option data-display="Agency Name">
+                            Agency Name
+                          </option>
+                          <option value="Vishal Heights">Vishal Heights</option>
+                          <option value="BCM Heights">BCM Heights</option>
+                          <option value="Stock Market">Stock Market</option>
+                          <option value="Treasure Island">Treasure Island</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Contact Number</label>
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder="Contact Number"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Description</label>
+                    <textarea placeholder="Enter your text" name="description"></textarea>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Facbook</label>
+                    <input
+                      type="text"
+                      name="facebook"
+                      placeholder="Facebook Link"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Instagram</label>
+                    <input
+                      type="text"
+                      name="instagram"
+                      placeholder="Instagram Link"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 column">
+                  <div class="field-input">
+                    <label>Profile Picture</label>
+                    <input class="form-control  col-md-12" name="image" id="formFileSm" type="file" />
+                  </div>
+                </div>
+                
+              </div>
+                  <button type="submit" class="theme-btn btn-one">
+                    Register as an agent
+                  </button>
+            </div>
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- myprofile-section end -->
+
+{% endblock content %}
