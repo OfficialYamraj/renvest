@@ -86,7 +86,7 @@ def verify(request, auth_token):
 
 
 def email_verify(request):
-    return render(request, 'email-verify.html')
+    return render(request, 'auth/email-verify.html')
 
 
 def signin(request):
@@ -158,18 +158,18 @@ def agency_registeration(request):
     else:
         return redirect('sign-in')
 
-    return render(request, 'agency-registeration.html')
+    return render(request, 'agency/agency-registeration.html')
 
 
 def agency_list(request):
     agency_all = sorted(Agency.objects.all())
     print(agency_all)
-    return render(request, 'agency-list.html', {"agency_list": agency_all})
+    return render(request, 'agency/agency-list.html', {"agency_list": agency_all})
 
 
 def agency_details(request, agency_name):
     agency_obj = Agency.objects.filter(agency_name=agency_name).first()
-    return render(request, 'agency-details.html', {'agency': agency_obj})
+    return render(request, 'agency/agency-details.html', {'agency': agency_obj})
 
 # def agency_details(request):
 #     return render(request, 'agency-details.html')
@@ -195,7 +195,7 @@ def agent_registeration(request):
     else:
         return redirect('sign-in')
 
-    return render(request, 'agent-registeration.html')
+    return render(request, 'agent/agent-registeration.html')
 
 
 def agent_list(request):
@@ -210,9 +210,13 @@ def agent_list(request):
         "count": count,
         "agent_list": agent_group
     }
-    return render(request, 'agent-list.html', variables)
+    return render(request, 'agent/agent-list.html', variables)
 
 
 def agent_details(request, username):
     agent_obj = Agent.objects.filter(user=username).first()
-    return render(request, 'agent-details.html', {'agent': agent_obj})
+    return render(request, 'agent/agent-details.html', {'agent': agent_obj})
+
+
+def property_details(request):
+    return render(request, 'property/property-details.html')

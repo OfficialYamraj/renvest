@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!--Page Title-->
+<section
+  class="page-title centred"
+  style="background-image: url(/static/images/background/page-title.jpg)"
+>
+  <div class="auto-container">
+    <div class="content-box clearfix">
+      <h1>Email Verification</h1>
+      <ul class="bread-crumb clearfix">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li>Email Verification</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!--End Page Title-->
+
+<!-- error-section -->
+<section class="error-section centred">
+  <div class="auto-container">
+    <div class="inner-box">
+      <h2>A verification email is sent to your email address.</h2>
+      <a href="{% url 'home' %}" class="theme-btn btn-one">Go To Home</a>
+    </div>
+  </div>
+</section>
+<!-- error-section end -->
+
+{% endblock content %}

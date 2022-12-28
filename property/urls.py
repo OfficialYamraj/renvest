@@ -34,5 +34,8 @@ urlpatterns = [
     path('agent-list/', views.agent_list,
          name='agent-list'),
 
+    path('property-details/', views.property_details,
+         name='property-details'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
