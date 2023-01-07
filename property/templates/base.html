@@ -98,7 +98,7 @@
                 </li>
                 <li>
                   <i class="fa-solid fa-phone"></i
-                  ><a href="tel:2512353256">+91 7000-169-169</a>
+                  ><a href="tel:+918982661645">+91 89826-61645</a>
                 </li>
               </ul>
             </div>
@@ -138,7 +138,7 @@
               <div class="logo-box">
                 <figure class="logo">
                   <a href="{% url 'home' %}"
-                    ><img src="{% static 'images/logo.png' %}" alt=""
+                    ><img src="{% static 'images/relogo.png' %}" alt=""
                   /></a>
                 </figure>
               </div>
@@ -163,6 +163,11 @@
                         <ul>
                           <li>
                             <a href="{% url 'agent-list' %}">Agents List</a>
+                          </li>
+                          <li>
+                            <a href="{% url 'property-list' %}"
+                              >Property List</a
+                            >
                           </li>
                           {% comment %}
                           <li>
@@ -203,13 +208,13 @@
                             >
                           </li>
                           <li>
-                            <a href="{% url 'property-details' %}"
+                            <a href="{% url 'property-details' 1 %}"
                               >Property Details</a
                             >
                           </li>
                         </ul>
                       </li>
-                      <li class="current dropdown">
+                      <li class="dropdown">
                         <a href="{% url 'home' %}"><span>Pages</span></a>
                         <div class="megamenu">
                           <div class="row clearfix">
@@ -240,6 +245,18 @@
                                 <li>
                                   <a href="testimonials.html">Testimonials</a>
                                 </li>
+                                <li>
+                                  <a href="{% url 'forgot-password' %}"
+                                    >Forgot Password</a
+                                  >
+                                </li>
+                                {% comment %}
+                                <li>
+                                  <a href="{% url 'reset-password' %}"
+                                    >Reset Password</a
+                                  >
+                                </li>
+                                {% endcomment %}
                               </ul>
                             </div>
                             <div class="col-xl-4 column">
@@ -356,7 +373,7 @@
                 </nav>
               </div>
               <div class="btn-box">
-                <a href="{% url 'home' %}" class="theme-btn btn-one"
+                <a href="{% url 'property-listing' %}" class="theme-btn btn-one"
                   ><span>+</span>Add Listing</a
                 >
               </div>
@@ -371,7 +388,7 @@
               <div class="logo-box">
                 <figure class="logo">
                   <a href="{% url 'home' %}"
-                    ><img src="{% static 'images/logo.png' %}" alt=""
+                    ><img src="{% static 'images/relogo.png' %}" alt=""
                   /></a>
                 </figure>
               </div>
@@ -399,7 +416,7 @@
         <nav class="menu-box">
           <div class="nav-logo">
             <a href="index.html"
-              ><img src="assets/images/logo-2.png" alt="" title=""
+              ><img src="assets/images/relogo-2.png" alt="" title=""
             /></a>
           </div>
           <div class="menu-outer">
@@ -408,9 +425,9 @@
           <div class="contact-info">
             <h4>Contact Info</h4>
             <ul>
-              <li>Chicago 12, Melborne City, USA</li>
-              <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-              <li><a href="mailto:info@example.com">info@example.com</a></li>
+              <li>Vijay Nagar, Indore</li>
+              <li><a href="tel:+918982661645">+88 89826-61645</a></li>
+              <li><a href="mailto:vishal@renvest.in">vishal@renvest.in</a></li>
             </ul>
           </div>
           <div class="social-links">
@@ -513,7 +530,9 @@
                       <li><a href="{% url 'about' %}">About Us</a></li>
                       <li><a href="{% url 'home' %}">Listing</a></li>
                       <li><a href="{% url 'home' %}">How It Works</a></li>
-                      <li><a href="{% url 'home' %}">Our Services</a></li>
+                      <li>
+                        <a href="{% url 'about' %}">Our Services</a>
+                      </li>
                       <li><a href="{% url 'home' %}">Our Blog</a></li>
                       <li><a href="{% url 'contact' %}">Contact Us</a></li>
                     </ul>
@@ -565,16 +584,18 @@
                   <div class="widget-content">
                     <ul class="info-list clearfix">
                       <li>
-                        <i class="fas fa-map-marker-alt"></i>Flat 20, Reynolds
-                        Neck, North Helenaville, FV77 8WS
+                        <i class="fas fa-map-marker-alt"></i>Vijay Nagar, Indore
                       </li>
                       <li>
                         <i class="fas fa-microphone"></i
-                        ><a href="tel:23055873407">+2(305) 587-3407</a>
+                        ><a href="tel:+918982661645">+91 89826-61645</a>
+                        <a href="tel:+917000169166">+91 70001-69166</a>
                       </li>
                       <li>
                         <i class="fas fa-envelope"></i
-                        ><a href="mailto:info@example.com">info@example.com</a>
+                        ><a href="mailto:vishal@renvest.in"
+                          >vishal@renvest.in</a
+                        >
                       </li>
                     </ul>
                   </div>
@@ -588,12 +609,12 @@
             <div class="inner-box clearfix">
               <figure class="footer-logo">
                 <a href="{% url 'home' %}"
-                  ><img src="{% static 'images/footer-logo.png' %}" alt=""
+                  ><img src="{% static 'images/refooter-logo.png' %}" alt=""
                 /></a>
               </figure>
               <div class="copyright pull-left">
                 <p>
-                  <a href="{% url 'home' %}">Realshed</a> &copy; 2022 All Right
+                  <a href="{% url 'home' %}">Renvest</a> &copy; 2023 All Right
                   Reserved
                 </p>
               </div>

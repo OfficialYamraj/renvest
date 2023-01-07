@@ -29,13 +29,13 @@
   <div class="auto-container">
     <div class="top-details clearfix">
       <div class="left-column pull-left clearfix">
-        <h3>The Citizen Apartment</h3>
+        <h3>{{Property.title}}</h3>
         <div class="author-info clearfix">
           <div class="author-box pull-left">
             <figure class="author-thumb">
-              <img src="{% static 'images/feature/author-1.jpg' %}" alt="" />
+              <img src="{{Agency.agency_image.url}}" alt="" />
             </figure>
-            <h6>Michael Bean</h6>
+            <h6>{{Property.agency_name}}</h6>
           </div>
           <ul class="rating clearfix pull-left">
             <li><i class="icon-39"></i></li>
@@ -49,11 +49,14 @@
       <div class="right-column pull-right clearfix">
         <div class="price-inner clearfix">
           <ul class="category clearfix pull-left">
+            {% comment %}
             <li><a href="property-details.html">Building</a></li>
             <li><a href="property-details.html">For Buy</a></li>
+            {% endcomment %}
           </ul>
           <div class="price-box pull-right">
-            <h3>$30,000.00</h3>
+            {% load indian_numbers_tags %}
+            <h3>₹{{Property.property_price|floatword_indian}}</h3>
           </div>
         </div>
         <ul class="other-option pull-right clearfix">
@@ -80,21 +83,15 @@
               class="single-item-carousel owl-carousel owl-theme owl-dots-none"
             >
               <figure class="image-box">
-                <img
-                  src="{% static 'images/resource/property-details-1.jpg' %}"
-                  alt=""
-                />
+                <img src="{{Property.main_pic.url}}" alt="" />
+              </figure>
+              <figure class="image-box">
+                <img src="{{Property.pic_02.url}}" alt="" />
               </figure>
               <figure class="image-box">
                 <img
-                  src="{% static 'images/resource/property-details-1.jpg' %}"
-                  alt=""
-                />
-              </figure>
-              <figure class="image-box">
-                <img
-                  src="{% static 'images/resource/property-details-1.jpg' %}"
-                  alt=""
+                  src="{{Property.pic_03.url}}"
+                  alt="{{Property.pic_03.url}}"
                 />
               </figure>
             </div>
@@ -104,19 +101,7 @@
               <h4>Property Description</h4>
             </div>
             <div class="text">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm
-                tempor incididunt labore dolore magna aliqua enim minim veniam
-                quis nostrud exercitation laboris nisi ut aliquip ea commodo
-                consequat duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur occaecat
-              </p>
-              <p>
-                Excepteur sint occaecat cupidatat non proident sunt in culpa qui
-                officia deserunt mollit anim est laborum. Sed perspiciatis unde
-                omnis iste natus error sit voluptatem accusantium dolore mque
-                laudantium totam rem aperiam.
-              </p>
+              <p>{{Property.description}}</p>
             </div>
           </div>
           <div class="details-box content-widget">
@@ -125,16 +110,21 @@
             </div>
             <ul class="list clearfix">
               <li>Property ID: <span>ZOP251C</span></li>
-              <li>Rooms: <span>06</span></li>
-              <li>Garage Size: <span>200 Sq Ft</span></li>
-              <li>Property Price: <span>$30,000</span></li>
-              <li>Bedrooms: <span>04</span></li>
-              <li>Year Built: <span>01 April, 2019</span></li>
-              <li>Property Type: <span>Apertment</span></li>
-              <li>Bathrooms: <span>03</span></li>
-              <li>Property Status: <span>For Sale</span></li>
-              <li>Property Size: <span>2024 Sq Ft</span></li>
-              <li>Garage: <span>01</span></li>
+              <li>
+                Property Price:
+                <span>₹{{Property.property_price|floatword_indian}}</span>
+              </li>
+              <li>
+                Date Added:
+                <span>{{Property.created_at|date:'d M, Y'}}</span>
+              </li>
+              <li>Property Type: <span>{{Property.property_type}}</span></li>
+              <li>
+                Property Status: <span>{{Property.property_status}}</span>
+              </li>
+              <li>
+                Property Size: <span>{{Property.property_size}} Sq Ft</span>
+              </li>
             </ul>
           </div>
           <div class="amenities-box content-widget">
@@ -153,85 +143,6 @@
               <li>Basketball Court</li>
               <li>Refrigerator</li>
               <li>Gym</li>
-            </ul>
-          </div>
-          <div class="floorplan-inner content-widget">
-            <div class="title-box">
-              <h4>Floor Plan</h4>
-            </div>
-            <ul class="accordion-box">
-              <li class="accordion block active-block">
-                <div class="acc-btn active">
-                  <div class="icon-outer">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                  <h5>First Floor</h5>
-                </div>
-                <div class="acc-content current">
-                  <div class="content-box">
-                    <p>
-                      Excepteur sint occaecat cupidatat non proident sunt in
-                      culpa qui officia deserunt mollit anim est laborum. Sed
-                      perspiciatis unde omnis iste natus error sit voluptatem
-                      accusa dolore mque laudant.
-                    </p>
-                    <figure class="image-box">
-                      <img
-                        src="{% static 'images/resource/floor-1.png' %}"
-                        alt=""
-                      />
-                    </figure>
-                  </div>
-                </div>
-              </li>
-              <li class="accordion block">
-                <div class="acc-btn">
-                  <div class="icon-outer">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                  <h5>Second Floor</h5>
-                </div>
-                <div class="acc-content">
-                  <div class="content-box">
-                    <p>
-                      Excepteur sint occaecat cupidatat non proident sunt in
-                      culpa qui officia deserunt mollit anim est laborum. Sed
-                      perspiciatis unde omnis iste natus error sit voluptatem
-                      accusa dolore mque laudant.
-                    </p>
-                    <figure class="image-box">
-                      <img
-                        src="{% static 'images/resource/floor-1.png' %}"
-                        alt=""
-                      />
-                    </figure>
-                  </div>
-                </div>
-              </li>
-              <li class="accordion block">
-                <div class="acc-btn">
-                  <div class="icon-outer">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                  <h5>Third Floor</h5>
-                </div>
-                <div class="acc-content">
-                  <div class="content-box">
-                    <p>
-                      Excepteur sint occaecat cupidatat non proident sunt in
-                      culpa qui officia deserunt mollit anim est laborum. Sed
-                      perspiciatis unde omnis iste natus error sit voluptatem
-                      accusa dolore mque laudant.
-                    </p>
-                    <figure class="image-box">
-                      <img
-                        src="{% static 'images/resource/floor-1.png' %}"
-                        alt=""
-                      />
-                    </figure>
-                  </div>
-                </div>
-              </li>
             </ul>
           </div>
           <div class="location-box content-widget">
@@ -390,89 +301,121 @@
             <div class="title-box">
               <h4>Page Statistics</h4>
             </div>
-            <figure class="image-box">
-              <a
-                href="{% static 'images/resource/statistics-1.png' %}"
-                class="lightbox-image"
-                data-fancybox="gallery"
-                ><img
-                  src="{% static 'images/resource/statistics-1.png' %}"
-                  alt=""
-              /></a>
-            </figure>
+            <!-- Chart code -->
+            <div>
+              <canvas id="myChart"></canvas>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+            <script>
+              const ctx = document.getElementById("myChart");
+
+              new Chart(ctx, {
+                type: "line",
+                data: {
+                  labels: [
+                    "Red",
+                    "Blue",
+                    "Yellow",
+                    "Green",
+                    "Purple",
+                    "Orange",
+                  ],
+                  datasets: [
+                    {
+                      label: "Views",
+                      data: [12, 24, 3, 5, 2, 100],
+                      borderWidth: 1,
+                    },
+                  ],
+                },
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true,
+                    },
+                  },
+                },
+              });
+            </script>
           </div>
           <div class="schedule-box content-widget">
             <div class="title-box">
               <h4>Schedule A Tour</h4>
             </div>
-            <div class="form-inner">
-              <form action="property-details.html" method="post">
-                <div class="row clearfix">
-                  <div class="col-lg-6 col-md-12 col-sm-12 column">
-                    <div class="form-group">
-                      <i class="far fa-calendar-alt"></i>
-                      <input
-                        type="text"
-                        name="date"
-                        placeholder="Tour Date"
-                        id="datepicker"
-                      />
+            <form method="post">
+              {% csrf_token %}
+              <div class="form-inner">
+                <form action="property-details.html" method="post">
+                  <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 column">
+                      <div class="form-group">
+                        <i class="far fa-calendar-alt"></i>
+                        <input
+                          type="text"
+                          name="date"
+                          placeholder="Tour Date"
+                          id="datepicker"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 column">
+                      <div class="form-group">
+                        <i class="far fa-clock"></i>
+                        <input type="text" name="time" placeholder="Any Time" />
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12 col-sm-12 column">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="Your Name"
+                          required=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 column">
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="Your Email"
+                          required=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 column">
+                      <div class="form-group">
+                        <input
+                          type="tel"
+                          name="phone"
+                          placeholder="Your Phone"
+                          required=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 column">
+                      <div class="form-group">
+                        <textarea
+                          name="message"
+                          placeholder="Your message"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 column">
+                      <div class="form-group message-btn">
+                        <button type="submit" class="theme-btn btn-one">
+                          Submit Now
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-md-12 col-sm-12 column">
-                    <div class="form-group">
-                      <i class="far fa-clock"></i>
-                      <input type="text" name="time" placeholder="Any Time" />
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-12 col-sm-12 column">
-                    <div class="form-group">
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="Your Name"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-12 col-sm-12 column">
-                    <div class="form-group">
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Your Email"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-12 col-sm-12 column">
-                    <div class="form-group">
-                      <input
-                        type="tel"
-                        name="phone"
-                        placeholder="Your Phone"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-12 col-md-12 col-sm-12 column">
-                    <div class="form-group">
-                      <textarea
-                        name="message"
-                        placeholder="Your message"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div class="col-lg-12 col-md-12 col-sm-12 column">
-                    <div class="form-group message-btn">
-                      <button type="submit" class="theme-btn btn-one">
-                        Submit Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
+                </form>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -546,17 +489,14 @@
               <div class="widget-title">
                 <h4>Mortgage Calculator</h4>
               </div>
-              <form
-                method="post"
-                action="mortgage-calculator.html"
-                class="default-form"
-              >
+              <form action="" class="default-form">
                 <div class="form-group">
                   <i class="fas fa-dollar-sign"></i>
                   <input
                     type="number"
                     name="total_amount"
                     placeholder="Total Amount"
+                    id="amount"
                   />
                 </div>
                 <div class="form-group">
@@ -602,6 +542,10 @@
         </div>
       </div>
     </div>
+    <script>
+      amount = document.getElementById("amount").value();
+      console.log(amount);
+    </script>
     <div class="similar-content">
       <div class="title">
         <h4>Similar Properties</h4>

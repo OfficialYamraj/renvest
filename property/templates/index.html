@@ -10,7 +10,7 @@
       ></div>
       <div class="auto-container">
         <div class="content-box">
-          <h2>Search Properties for Sale and To Rent</h2>
+          <h2>Find a home that suits your lifestyle.</h2>
           <p>Amet consectetur adipisicing elit sed do eiusmod.</p>
         </div>
       </div>
@@ -22,7 +22,7 @@
       ></div>
       <div class="auto-container">
         <div class="content-box">
-          <h2>Search Properties for Sale and To Rent</h2>
+          <h2>Exceptional properties deserve extraordinary marketing.</h2>
           <p>Amet consectetur adipisicing elit sed do eiusmod.</p>
         </div>
       </div>
@@ -34,7 +34,7 @@
       ></div>
       <div class="auto-container">
         <div class="content-box">
-          <h2>Search Properties for Sale and To Rent</h2>
+          <h2>Exclusive Access to Local Experts</h2>
           <p>Amet consectetur adipisicing elit sed do eiusmod.</p>
         </div>
       </div>
@@ -494,11 +494,12 @@
     <div
       class="three-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one"
     >
+      {% for pro in property %}
       <div class="feature-block-one">
         <div class="inner-box">
           <div class="image-box">
             <figure class="image">
-              <img src="{% static 'images/feature/feature-1.jpg' %}" alt="" />
+              <img src="{{pro.main_pic.url}}" alt="" />
             </figure>
             <div class="batch"><i class="fa-solid fa-bolt"></i></div>
             <span class="category">Featured</span>
@@ -520,13 +521,14 @@
             </div>
             <div class="title-text">
               <h4>
-                <a href="agents-details.html">Villa on Grand Avenue</a>
+                <a href="{% url 'property-details' pro.id %}">{{pro.title}}</a>
               </h4>
             </div>
             <div class="price-box clearfix">
               <div class="price-info pull-left">
+                {% load indian_numbers_tags %}
                 <h6>Start From</h6>
-                <h4>$30,000.00</h4>
+                <h4>₹{{pro.property_price|floatword_indian}}</h4>
               </div>
               <ul class="other-option pull-right clearfix">
                 <li>
@@ -541,20 +543,23 @@
                 </li>
               </ul>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
+            <p>{{pro.description |truncatechars:100}}</p>
             <ul class="more-details clearfix">
               <li><i class="fa-solid fa-bed"></i>3 Beds</li>
               <li><i class="fa-solid fa-bath"></i>2 Baths</li>
               <li><i class="fa-brands fa-buromobelexperte"></i>600 Sq Ft</li>
             </ul>
             <div class="btn-box">
-              <a href="property-details.html" class="theme-btn btn-two"
+              <a
+                href="{% url 'property-details' pro.id %}"
+                class="theme-btn btn-two"
                 >See Details</a
               >
             </div>
           </div>
         </div>
       </div>
+      {% endfor %}
       <div class="feature-block-one">
         <div class="inner-box">
           <div class="image-box">
@@ -616,6 +621,7 @@
           </div>
         </div>
       </div>
+
       <div class="feature-block-one">
         <div class="inner-box">
           <div class="image-box">
@@ -679,7 +685,7 @@
       </div>
     </div>
     <div class="more-btn centred">
-      <a href="property-list.html" class="theme-btn btn-one"
+      <a href="{% url 'property-list' %}" class="theme-btn btn-one"
         >View All Listing</a
       >
     </div>
@@ -690,7 +696,7 @@
 <!-- cta-section -->
 <section
   class="cta-section alternate-2 centred"
-  style="background-image: url(/static/images/background/cta-1.jpg)"
+  style="background-image: url(/static/images/background/recta-1.jpg)"
 >
   <div class="auto-container">
     <div class="inner-box clearfix">
@@ -1196,7 +1202,7 @@
 <!-- testimonial-style-two -->
 <section
   class="testimonial-style-two"
-  style="background-image: url(/static/images/background/testimonial-1.jpg)"
+  style="background-image: url(/static/images/background/retestimonial-1.jpg)"
 >
   <div class="auto-container">
     <div class="row clearfix">
