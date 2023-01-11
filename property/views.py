@@ -1,5 +1,5 @@
 import socket
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_list_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -365,3 +365,13 @@ def property_list(request):
     properties = Property.objects.all()
     print(properties)
     return render(request, 'property/property-list.html', {"property": properties})
+
+
+def mapview(request):
+    obj = get_list_or_404(MapLocater, id=1)
+
+    context = {
+        'location': obj
+    }
+
+    return render(request, "measurements.html")

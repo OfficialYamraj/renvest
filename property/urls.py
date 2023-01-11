@@ -13,6 +13,9 @@ urlpatterns = [
     path('sign-up/', views.signup, name='sign-up'),
     path('sign-out/', views.signout, name='sign-out'),
 
+    # This one for deletion
+    path('measurements/', views.mapview, name='measurements'),
+
     # After Forgot Password
     path('forgot-password/', views.forgotPassword, name='forgot-password'),
     #     path('reset-password/',

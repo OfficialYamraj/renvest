@@ -27,6 +27,12 @@ class SchecudeDisplay(admin.ModelAdmin):
     list_filter = ("created_at",)
 
 
+class MapDisplay(admin.ModelAdmin):
+    list_display = ("location", "created_at")
+    list_filter = ("created_at", "location",)
+    search_fields = ['location']
+
+
 admin.site.register(Contact, ContactFilter)
 admin.site.register(Agent, AgentDisplay)
 admin.site.register(Agency, AgencyDisplay)
@@ -34,3 +40,4 @@ admin.site.register(Profile)
 admin.site.register(Property, PropertyDisplay)
 admin.site.register(ForgotPassword)
 admin.site.register(Schedule, SchecudeDisplay)
+admin.site.register(MapLocater, MapDisplay)
