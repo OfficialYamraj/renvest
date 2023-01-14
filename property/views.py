@@ -62,7 +62,7 @@ def signup(request):
                 return redirect('home')
         except Exception as e:
             print("Daily limit Exceed")
-    return render(request, 'sign-up.html')
+    return render(request, 'auth/sign-up.html')
 
 
 def send_email_after_registration(email, token):
