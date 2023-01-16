@@ -6,6 +6,9 @@ services:
     build: .
     ports: 
       - "8000:8000"
+    environment:
+      - EMAIL_HOST_USER=manishsinghdewas@gmail.com
+      - EMAIL_HOST_PASSWORD=wjpkivisyrvneiqe
 
 
       

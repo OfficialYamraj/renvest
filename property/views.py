@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect, get_list_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-# from .forms import *
 from .models import *
 import uuid
 from django.conf import settings
@@ -335,9 +334,22 @@ def property_listing(request):
     return render(request, 'property/property-listing.html')
 
 
+def get_user_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(",")[0]
+        print(ip)
+    else:
+        ip = request.META.get("REMOTE_ADDR")
+    return ip
+
+
 def property_details(request, pk):
     property_obj = Property.objects.filter(id=pk).first()
     agency_obj = Agency.objects.filter(id=property_obj.agency_name.id).first()
+
+    ip = get_user_ip(request)
+    print(ip)
 
     if request.method == "POST":
         date = request.POST.get('date')

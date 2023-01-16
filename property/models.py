@@ -58,6 +58,13 @@ class Agency(models.Model):
         return self.agency_name
 
 
+class IpModel(models.Model):
+    ip = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.ip
+
+
 class Property(models.Model):
     agency_name = models.ForeignKey(Agency, on_delete=models.CASCADE)
     title = models.CharField(max_length=500)
@@ -74,6 +81,8 @@ class Property(models.Model):
     pic_02 = models.ImageField(upload_to="property_img_02")
     pic_03 = models.ImageField(upload_to="property_img_03")
     created_at = models.DateField(auto_now_add=True)
+    views = models.ManyToManyField(
+        IpModel, related_name="property_views", blank=True)
 
     def __str__(self):
         return self.title
