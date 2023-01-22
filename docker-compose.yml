@@ -5,10 +5,10 @@ services:
     image: django-docker:0.0.1
     build: .
     ports: 
-      - "8000:8000"
+      - "80:8000"
     environment:
-      - EMAIL_HOST_USER=manishsinghdewas@gmail.com
-      - EMAIL_HOST_PASSWORD=wjpkivisyrvneiqe
+      - EMAIL_HOST_USER=manishsinghdewas02@gmail.com
+      - EMAIL_HOST_PASSWORD=ietgdpxaxyzfcdpg
 
 
       

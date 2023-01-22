@@ -100,7 +100,8 @@ def verify(request, auth_token):
 
     except Exception as e:
         print("EXCEPT")
-        print(e)
+        print("Your email is already verified")
+        return redirect('sign-in')
 
 
 def verifyforpassword(request, auth_token):

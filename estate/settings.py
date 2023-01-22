@@ -87,6 +87,26 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+
+#     'default': {
+
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+#         'NAME': 'renvest_db',
+
+#         'USER': 'renvest',
+
+#         'PASSWORD': 'Seeyouattop',
+
+#         'HOST': 'database-2.cfreygwwohoh.ap-south-1.rds.amazonaws.com',
+
+#         'PORT': '5432',
+
+#     }
+
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -136,9 +156,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'property/static/uploaded_image')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
