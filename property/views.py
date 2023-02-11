@@ -11,6 +11,8 @@ from django.views.decorators.csrf import csrf_exempt
 from datetime import date, timedelta
 from django.db.models.functions import Now
 
+DOMAIN = "127.0.0.1:8000"
+DOMAIN2 = "www.renvest.in"
 
 def home(request):
     print("Welcome to home")
@@ -67,7 +69,7 @@ def signup(request):
 def send_email_after_registration(email, token):
     subject = "Your accounts need to be verified!!"
     n1 = "\n"
-    message = f'Hi click the link to verify your account http://127.0.0.1:8000/verify/{token}'
+    message = f'Hi click the link to verify your account http://{DOMAIN2}/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     send_mail(subject, message, email_from, recipient_list)
@@ -75,8 +77,7 @@ def send_email_after_registration(email, token):
 
 def send_email_for_password(email, token, uname):
     subject = "Your accounts need to be verified!!"
-    n1 = "\n"
-    message = f' Hello {uname}, \n Please click the link to reset your password \n http://127.0.0.1:8000/verifyforpassword/{token} \n Thanks for joining with us.\n Team Renvest'
+    message = f' Hello {uname}, \n Please click the link to reset your password \n http://{DOMAIN2}/verifyforpassword/{token} \n Thanks for joining with us.\n Team Renvest'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     send_mail(subject, message, email_from, recipient_list)

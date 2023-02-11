@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-@9oc&-313sw=6mv68@6#o)w0+_)tuc8c91%ble*cy06+)6sgi_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['65.2.153.174', 'localhost',
-                 'www.renvest.in', '127.0.0.1']
+ALLOWED_HOSTS = ['13.127.127.240', 'localhost',
+                 'www.renvest.in', '127.0.0.1', '192.168.29.67']
 
 
 # Application definition
@@ -48,6 +48,7 @@ USE_THOUSAND_SEPARATOR = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -144,10 +145,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = '/uploaded_image/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'property/static/uploaded_image')
 # Default primary key field type
