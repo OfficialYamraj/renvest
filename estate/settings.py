@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     "indian_numbers",
+    'storages',
+
 ]
 
 USE_THOUSAND_SEPARATOR = True
@@ -81,32 +83,31 @@ WSGI_APPLICATION = 'estate.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'renvest_db',
+
+        'USER': 'postgres',
+
+        'PASSWORD': 'Renvest123',
+
+        'HOST': 'renvest-2023.czpy9yzm7rqx.ap-south-1.rds.amazonaws.com',
+
+        'PORT': 5432,
+
     }
+
 }
-
-# DATABASES = {
-
-#     'default': {
-
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-#         'NAME': 'renvest_db',
-
-#         'USER': 'renvest',
-
-#         'PASSWORD': 'Seeyouattop',
-
-#         'HOST': 'database-2.cfreygwwohoh.ap-south-1.rds.amazonaws.com',
-
-#         'PORT': '5432',
-
-#     }
-
-# }
 
 
 # Password validation
@@ -145,7 +146,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = '/uploaded_image/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'static')
@@ -168,3 +169,20 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'manishsinghdewas02@gmail.com'
 EMAIL_HOST_PASSWORD = 'rqqqpbgodetsaqgh'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+# AWS_ACCESS_KEY_ID = 'AKIAXXU5MJ4JOFMWF7ZO'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'static-renvest-bucket'
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# # AWS_S3_OBJECT_PARAMETERS = {
+# #     'CacheControl': 'max-age=86400',
+# # }
+# AWS_LOCATION = 'static'
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
+
+# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
