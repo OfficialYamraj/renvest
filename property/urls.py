@@ -28,26 +28,6 @@ urlpatterns = [
     path('verify/<auth_token>', views.verify, name='verify'),
 
 
-    path('agency-registeration/', views.agency_registeration,
-         name='agency-registeration'),
-    path('agency-list/', views.agency_list,
-         name='agency-list'),
-    path('agency-details/<agency_name>', views.agency_details,
-         name='agency-details'),
-    #     path('agency-updatation', views.agency_updatation,
-    #          name='agency-updatation'),
-    # path('agency-details/', views.agency_details,
-    #      name='agency-details'),
-
-    path('agent-registeration/', views.agent_registeration,
-         name='agent-registeration'),
-    path('agent-details/<username>', views.agent_details,
-         name='agent-details'),
-    path('agent-list/', views.agent_list,
-         name='agent-list'),
-    path('agent-updatation/<pk>', views.agent_updatation,
-         name='agent-updatation'),
-
     path('property-details/<pk>', views.property_details,
          name='property-details'),
     path('property-listing/', views.property_listing,
