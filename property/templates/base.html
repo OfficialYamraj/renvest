@@ -52,24 +52,24 @@
     </script>
 
     <!-- Stylesheets -->
-    <link href="{% static 'css/font-awesome-all.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/flaticon.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/owl.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/jquery.fancybox.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/animate.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/jquery-ui.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/nice-select.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/fontawesome.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/font-awesome-all.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/flaticon.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/owl.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/jquery.fancybox.min.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/animate.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/jquery-ui.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/nice-select.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/fontawesome.css' %}" rel="stylesheet" />
 
     <link
-      href="{% static 'css/color/theme-color.css' %}"
+      href="{% static '/css/color/theme-color.css' %}"
       id="jssDefault"
       rel="stylesheet"
     />
-    <link href="{% static 'css/switcher-style.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/switcher-style.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/responsive.css' %}" rel="stylesheet" />
   </head>
 
   <!-- page wrapper -->
@@ -180,6 +180,11 @@
                             <a href="{% url 'agent-list' %}">Agents List</a>
                           </li>
                           <li>
+                            <a href="{% url 'agent-updatation' 1 %}"
+                              >Agents Updatation</a
+                            >
+                          </li>
+                          <li>
                             <a href="{% url 'property-list' %}"
                               >Property List</a
                             >
@@ -197,36 +202,22 @@
                         <a href="{% url 'home' %}"><span>Property</span></a>
                         <ul>
                           <li>
-                            <a href="property-list.html">Property List</a>
-                          </li>
-                          <li>
-                            <a href="property-grid.html">Property Grid</a>
-                          </li>
-                          <li>
-                            <a href="property-list-2.html"
-                              >Property List Full View</a
+                            <a href="{% url 'property-list' %}"
+                              >Property List</a
                             >
                           </li>
                           <li>
-                            <a href="property-grid-2.html"
-                              >Property Grid Full View</a
+                            <a href="{% url 'property-listing' %}"
+                              >Property Listing</a
                             >
                           </li>
+                          {% comment %}
                           <li>
-                            <a href="property-list-3.html"
-                              >Property List Half View</a
-                            >
-                          </li>
-                          <li>
-                            <a href="property-grid-3.html"
-                              >Property Grid Half View</a
-                            >
-                          </li>
-                          <li>
-                            <a href="{% url 'property-details' 1 %}"
+                            <a href="{% url 'property-details' %}"
                               >Property Details</a
                             >
                           </li>
+                          {% endcomment %}
                         </ul>
                       </li>
                       <li class="dropdown">

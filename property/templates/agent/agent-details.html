@@ -35,7 +35,15 @@
           <div class="content-box">
             <div class="upper clearfix">
               <div class="title-inner pull-left">
-                <h4>{{agent.name}}</h4>
+                <h4>
+                  {{agent.name}} &nbsp; {% if edit %}
+                  <a
+                    class="color:#2dbe6c;"
+                    href="{% url 'agent-updatation' agent.id %}"
+                    ><i class="fa-solid fa-pen-to-square"></i
+                  ></a>
+                  {% endif %}
+                </h4>
                 <span class="designation">{{agent.agency}}</span>
               </div>
               <ul class="social-list pull-right clearfix">

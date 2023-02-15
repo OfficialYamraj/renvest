@@ -1,3 +1,4 @@
+import os
 import socket
 from django.shortcuts import render, redirect, get_list_or_404
 from django.contrib.auth.models import User
@@ -10,6 +11,10 @@ from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
 from datetime import date, timedelta
 from django.db.models.functions import Now
+from django.core.files.storage import default_storage
+
+DOMAIN = "127.0.0.1:8000"
+DOMAIN2 = "www.renvest.in"
 
 
 def home(request):
@@ -67,7 +72,7 @@ def signup(request):
 def send_email_after_registration(email, token):
     subject = "Your accounts need to be verified!!"
     n1 = "\n"
-    message = f'Hi click the link to verify your account http://127.0.0.1:8000/verify/{token}'
+    message = f'Hi click the link to verify your account http://{DOMAIN2}/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     send_mail(subject, message, email_from, recipient_list)
@@ -75,8 +80,7 @@ def send_email_after_registration(email, token):
 
 def send_email_for_password(email, token, uname):
     subject = "Your accounts need to be verified!!"
-    n1 = "\n"
-    message = f' Hello {uname}, \n Please click the link to reset your password \n http://127.0.0.1:8000/verifyforpassword/{token} \n Thanks for joining with us.\n Team Renvest'
+    message = f' Hello {uname}, \n Please click the link to reset your password \n http://{DOMAIN2}/verifyforpassword/{token} \n Thanks for joining with us.\n Team Renvest'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     send_mail(subject, message, email_from, recipient_list)
@@ -249,6 +253,11 @@ def agency_registeration(request):
     return render(request, 'agency/agency-registeration.html')
 
 
+def agency_updatation(request, pk):
+    agencyDetails = 20
+    pass
+
+
 def agency_list(request):
     agency_all = sorted(Agency.objects.all())
     print(agency_all)
@@ -286,6 +295,50 @@ def agent_registeration(request):
     return render(request, 'agent/agent-registeration.html')
 
 
+def agent_updatation(request, pk):
+    if request.user:
+        agentDetail = Agent.objects.filter(id=pk).first()
+        if request.method == "POST":
+            aname = request.POST.get('name')
+            agency = request.POST.get('agency')
+            phone = request.POST.get('phone')
+            email = request.POST.get('email')
+            description = request.POST.get('description')
+            facebook = request.POST.get('facebook')
+            instagram = request.POST.get('instagram')
+            image = request.FILES['image']
+
+            if image:
+                os.remove(agentDetail.image.path)
+            else:
+                image = agentDetail.image
+
+            created_at = agentDetail.created_at
+
+            agent_create = Agent(id=pk, user=request.user, name=aname, agency=agency, phone=phone, email=email,
+                                 description=description, facebook=facebook, instagram=instagram, image=image, created_at=created_at)
+            agent_create.save()
+            print("UserUpdate")
+            return redirect('agent-details', agentDetail.user.id)
+
+        elif request.user.id == agentDetail.user.id:
+            name = agentDetail.name
+            print(name)
+            agentInfo = {
+                "name": name,
+                "aname": agentDetail.agency,
+                "phone": agentDetail.phone,
+                "email": agentDetail.email,
+                "description": agentDetail.description,
+                "facebook": agentDetail.facebook,
+                "instagram": agentDetail.instagram,
+            }
+            return render(request, "agent/agent-updatation.html", agentInfo)
+
+    # print(agentInfo.values)
+    return render(request, "agent/agent-updatation.html", agentInfo)
+
+
 def agent_list(request):
     agent_all = Agent.objects.all()
     count = agent_all.count()
@@ -303,7 +356,18 @@ def agent_list(request):
 
 def agent_details(request, username):
     agent_obj = Agent.objects.filter(user=username).first()
-    return render(request, 'agent/agent-details.html', {'agent': agent_obj})
+    if request.user.is_authenticated:
+        agentDetail = Agent.objects.filter(user=request.user).first()
+        # print(request.user.id)
+        if request.user.id == agentDetail.user.id:
+            edit = True
+    else:
+        edit = False
+    values = {
+        "edit": edit,
+        'agent': agent_obj
+    }
+    return render(request, 'agent/agent-details.html', values)
 
 
 def property_listing(request):

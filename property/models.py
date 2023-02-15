@@ -35,7 +35,7 @@ class Agent(models.Model):
     facebook = models.CharField(max_length=1000, blank=True)
     instagram = models.CharField(max_length=1000, blank=True)
     image = models.ImageField(blank=False, upload_to="agent_profile_img")
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.name
