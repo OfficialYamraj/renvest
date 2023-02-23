@@ -347,6 +347,7 @@
                           </li>
                         </ul>
                       </li>
+                      {% comment %}
                       <li class="dropdown">
                         <a href="{% url 'home' %}"><span>Blog</span></a>
                         <ul>
@@ -354,6 +355,18 @@
                           <li><a href="blog-2.html">Blog 02</a></li>
                           <li><a href="blog-3.html">Blog 03</a></li>
                           <li><a href="blog-details.html">Blog Details</a></li>
+                        </ul>
+                      </li>
+                      {% endcomment %}
+                      <li class="dropdown">
+                        <a href="{% url 'home' %}"><span>Agent</span></a>
+                        <ul>
+                          <li>
+                            <a href="{% url 'agent-registeration' %}"
+                              >Agent Registeration</a
+                            >
+                          </li>
+                          <li><a href="blog-2.html">Blog 02</a></li>
                         </ul>
                       </li>
                       <li>
@@ -540,6 +553,7 @@
                         <a href="{% url 'about' %}">Our Services</a>
                       </li>
                       <li><a href="{% url 'home' %}">Our Blog</a></li>
+                      <li><a href="{% url 'affiliate' %}">Affiliate</a></li>
                       <li><a href="{% url 'contact' %}">Contact Us</a></li>
                     </ul>
                   </div>

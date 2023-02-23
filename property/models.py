@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
+
 
 # Create your models here.
 
@@ -40,6 +42,15 @@ class Agent(models.Model):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.image.path)
+
+        if img.height > 330 or img.width > 270:
+            output_size = (270, 330)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
+
 
 class Agency(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -52,7 +63,6 @@ class Agency(models.Model):
     agency_instagram = models.CharField(max_length=1000, blank=True)
     agency_image = models.ImageField(
         blank=False, upload_to="agency_profile_img")
-    agency_created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.agency_name
@@ -83,9 +93,46 @@ class Property(models.Model):
     created_at = models.DateField(auto_now_add=True)
     views = models.ManyToManyField(
         IpModel, related_name="property_views", blank=True)
+    map = models.CharField(max_length=5000, blank=True)
 
     def __str__(self):
         return self.title
+
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+    #     ar = [self.main_pic, self.pic_02, self.pic_03]
+    #     for i in range(len(ar)-1):
+    #         img = Image.open(self.ar[1].path)
+
+    #         if img.height > 520 or img.width > 770:
+    #             output_size = (770, 520)
+    #             img.thumbnail(output_size)
+    #             img.save(self.i.path)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.main_pic.path)
+
+        if img.height > 520 or img.width > 770:
+            output_size = (770, 520)
+            img.thumbnail(output_size)
+            img.save(self.main_pic.path)
+            print(img.size)
+
+        # img = Image.open(self.pic_02.path)
+
+        # if img.height > 520 or img.width > 770:
+        #     output_size = (770, 520)
+        #     img.thumbnail(output_size)
+        #     img.save(self.pic_02.path)
+        #     print(img.size)
+
+        # img = Image.open(self.pic_03.path)
+
+        # if img.height > 520 or img.width > 770:
+        #     output_size = (770, 520)
+        #     img.thumbnail(output_size)
+        #     img.save(self.pic_03.path)
 
 
 class ForgotPassword(models.Model):

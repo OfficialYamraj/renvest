@@ -83,7 +83,11 @@
               class="single-item-carousel owl-carousel owl-theme owl-dots-none"
             >
               <figure class="image-box">
-                <img src="{{Property.main_pic.url}}" alt="" />
+                <img
+                  src="{{Property.main_pic.url}}"
+                  alt=""
+                  style="width: 100%; height: 100%"
+                />
               </figure>
               <figure class="image-box">
                 <img src="{{Property.pic_02.url}}" alt="" />
@@ -127,24 +131,7 @@
               </li>
             </ul>
           </div>
-          <div class="amenities-box content-widget">
-            <div class="title-box">
-              <h4>Amenities</h4>
-            </div>
-            <ul class="list clearfix">
-              <li>Air Conditioning</li>
-              <li>Cleaning Service</li>
-              <li>Dishwasher</li>
-              <li>Hardwood Flows</li>
-              <li>Swimming Pool</li>
-              <li>Outdoor Shower</li>
-              <li>Microwave</li>
-              <li>Pet Friendly</li>
-              <li>Basketball Court</li>
-              <li>Refrigerator</li>
-              <li>Gym</li>
-            </ul>
-          </div>
+
           <div class="location-box content-widget">
             <div class="title-box">
               <h4>Location</h4>
@@ -157,146 +144,11 @@
               <li><span>Zip/Postal Code:</span> 2403</li>
               <li><span>City:</span> Brooklyn</li>
             </ul>
-            <div class="google-map-area">
-              <div
-                class="google-map"
-                id="contact-google-map"
-                data-map-lat="40.712776"
-                data-map-lng="-74.005974"
-                data-icon-path="images/icons/map-marker.png"
-                data-map-title="Brooklyn, New York, United Kingdom"
-                data-map-zoom="12"
-                data-markers='{
-                                            "marker-1": [40.712776, -74.005974, "<h4>Branch Office</h4><p>77/99 New York</p>","images/icons/map-marker.png"]
-                                        }'
-              ></div>
+            <div class="google-map-area text-center">
+              {{Property.map | safe}}
             </div>
           </div>
-          <div class="nearby-box content-widget">
-            <div class="title-box">
-              <h4>What’s Nearby?</h4>
-            </div>
-            <div class="inner-box">
-              <div class="single-item">
-                <div class="icon-box"><i class="fas fa-book-reader"></i></div>
-                <div class="inner">
-                  <h5>Education:</h5>
-                  <div class="box clearfix">
-                    <div class="text pull-left">
-                      <h6>Western Reserve University <span>(2.10 km)</span></h6>
-                    </div>
-                    <ul class="rating pull-right clearfix">
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-40"></i></li>
-                    </ul>
-                  </div>
-                  <div class="box clearfix">
-                    <div class="text pull-left">
-                      <h6>
-                        Georgia Institute of Technology <span>(1.42 km)</span>
-                      </h6>
-                    </div>
-                    <ul class="rating pull-right clearfix">
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-40"></i></li>
-                    </ul>
-                  </div>
-                  <div class="box clearfix">
-                    <div class="text pull-left">
-                      <h6>Harvey Mudd College <span>(2.10 km)</span></h6>
-                    </div>
-                    <ul class="rating pull-right clearfix">
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-40"></i></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="single-item">
-                <div class="icon-box"><i class="fas fa-coffee"></i></div>
-                <div class="inner">
-                  <h5>Restaurant:</h5>
-                  <div class="box clearfix">
-                    <div class="text pull-left">
-                      <h6>SC Ranch Market <span>(3.10 km)</span></h6>
-                    </div>
-                    <ul class="rating pull-right clearfix">
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-40"></i></li>
-                    </ul>
-                  </div>
-                  <div class="box clearfix">
-                    <div class="text pull-left">
-                      <h6>Chill On The Hill <span>(2.42 km)</span></h6>
-                    </div>
-                    <ul class="rating pull-right clearfix">
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-40"></i></li>
-                    </ul>
-                  </div>
-                  <div class="box clearfix">
-                    <div class="text pull-left">
-                      <h6>
-                        Gordon Ramsay Hell's Kitchen <span>(1.22 km)</span>
-                      </h6>
-                    </div>
-                    <ul class="rating pull-right clearfix">
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-40"></i></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="single-item">
-                <div class="icon-box"><i class="fas fa-capsules"></i></div>
-                <div class="inner">
-                  <h5>Health & Medical:</h5>
-                  <div class="box clearfix">
-                    <div class="text pull-left">
-                      <h6>North Star Medical Clinic <span> (2.10 km)</span></h6>
-                    </div>
-                    <ul class="rating pull-right clearfix">
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-40"></i></li>
-                    </ul>
-                  </div>
-                  <div class="box clearfix">
-                    <div class="text pull-left">
-                      <h6>Clairvoyant Healing <span>(1.42 km)</span></h6>
-                    </div>
-                    <ul class="rating pull-right clearfix">
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-39"></i></li>
-                      <li><i class="icon-40"></i></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div class="statistics-box content-widget">
             <div class="title-box">
               <h4>Page Statistics</h4>
@@ -546,6 +398,7 @@
       amount = document.getElementById("amount").value();
       console.log(amount);
     </script>
+    {% comment %}
     <div class="similar-content">
       <div class="title">
         <h4>Similar Properties</h4>
@@ -763,6 +616,7 @@
         </div>
       </div>
     </div>
+    {% endcomment %}
   </div>
 </section>
 <!-- property-details end -->

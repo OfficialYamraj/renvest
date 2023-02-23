@@ -513,15 +513,12 @@
             <div class="author-info clearfix">
               <div class="author pull-left">
                 <figure class="author-thumb">
-                  <img
-                    src="{% static 'images/feature/author-1.jpg' %}"
-                    alt=""
-                  />
+                  <img src="{{pro.agency_name.agency_image.url}}" alt="" />
                 </figure>
-                <h6>Michael Bean</h6>
+                <h6>{{pro.agency_name | truncatechars:15}}</h6>
               </div>
               <div class="buy-btn pull-right">
-                <a href="property-details.html">For Buy</a>
+                <a href="{% url 'property-details' pro.id %}">For Buy</a>
               </div>
             </div>
             <div class="title-text">
@@ -549,11 +546,13 @@
               </ul>
             </div>
             <p>{{pro.description |truncatechars:100}}</p>
+            {% comment %}
             <ul class="more-details clearfix">
               <li><i class="fa-solid fa-bed"></i>3 Beds</li>
               <li><i class="fa-solid fa-bath"></i>2 Baths</li>
               <li><i class="fa-brands fa-buromobelexperte"></i>600 Sq Ft</li>
             </ul>
+            {% endcomment %}
             <div class="btn-box">
               <a
                 href="{% url 'property-details' pro.id %}"

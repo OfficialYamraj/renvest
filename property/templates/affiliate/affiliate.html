@@ -1,0 +1,148 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!--Page Title-->
+<section
+  class="page-title centred"
+  style="background-image: url(/static/images/background/cta-1.jpg)"
+>
+  <div class="auto-container">
+    <div class="content-box clearfix">
+      <h1>Career Opportunity</h1>
+      <ul class="bread-crumb clearfix">
+        <li><a href="index.html">Home</a></li>
+        <li>Career Opportunity</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!--End Page Title-->
+
+<!-- career-page-section -->
+<section class="career-page-section sec-pad">
+  <div class="auto-container">
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12 left-side">
+        <div class="sec-title">
+          <h5>Affiliate Programe</h5>
+          <h2>Build Career With <br />Renvest</h2>
+          <p>
+            "Are you looking to earn some extra cash simply by referring your
+            friends and family to top-quality real estate services? Look no
+            further than our referral program at Renvest! As a member of our
+            program, you can earn significant rewards for every successful
+            referral you make. Whether you're a real estate professional or just
+            someone who knows someone in need of our services, we welcome you to
+            join our community of satisfied referrers.
+          </p>
+          <p>
+            With Renvest, you can rest easy knowing that you're helping your
+            loved ones find their dream home while also earning money for
+            yourself. So why wait? Sign up for our referral program today and
+            start earning!"
+          </p>
+          <p>
+            "At Renvest, we know that the best marketing comes from satisfied
+            customers who refer their friends and family to our real estate
+            services. That's why we offer a generous referral program that
+            rewards our customers for their loyalty. For every successful lead
+            conversion or valid lead generation,
+            <span style="color: #2dbe6c">
+              <br />
+              We offer a minimum reward of up to ₹10,000!
+            </span>
+            That's right, you can earn significant cash just by referring your
+            friends and family to Renvest's top-quality real estate services
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- career-page-section end -->
+
+<!-- contact-section -->
+<section class="contact-section bg-color-1">
+  <div class="auto-container">
+    <div class="row align-items-center clearfix">
+      <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+        <div class="content-box">
+          <div class="sec-title">
+            <h5>Referral Form</h5>
+            <h2>Member Details</h2>
+          </div>
+          <div class="form-inner">
+            <form method="post">
+              <div class="row clearfix">
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder="Client Name"
+                    required=""
+                  />
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email address"
+                    required=""
+                  />
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Phone"
+                    required=""
+                  />
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    required=""
+                  />
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                  <textarea
+                    name="message"
+                    placeholder="Member Details"
+                  ></textarea>
+                </div>
+                <div
+                  class="col-lg-12 col-md-12 col-sm-12 form-group message-btn"
+                >
+                  <button
+                    class="theme-btn btn-one"
+                    type="submit"
+                    name="submit-form"
+                  >
+                    Send
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+        <div
+          class="image-box wow fadeInRight animated"
+          data-wow-delay="00ms"
+          data-wow-duration="3000ms"
+        >
+          <figure class="image">
+            <img
+              src="{% static 'images/resource/affiliate.jpg' %}"
+              alt="affiliate.jpg"
+            />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- contact-section end -->
+{% endblock content %}
