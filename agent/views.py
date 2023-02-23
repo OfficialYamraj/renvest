@@ -5,7 +5,6 @@ from django.contrib import messages
 from .models import *
 from property.views import *
 
-
 # CRUD Of Agents
 
 

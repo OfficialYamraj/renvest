@@ -34,6 +34,8 @@ ALLOWED_HOSTS = ['13.127.127.240', 'localhost',
 
 INSTALLED_APPS = [
     'agent.apps.AgentConfig',
+    'agency.apps.AgencyConfig',
+    'affiliate.apps.AffiliateConfig',
     'property.apps.PropertyConfig',
     'django.contrib.admin',
     'django.contrib.auth',
