@@ -7,10 +7,10 @@
 >
   <div class="auto-container">
     <div class="content-box clearfix">
-      <h1>Agent Profile</h1>
+      <h1>{{agent.name}} Profile</h1>
       <ul class="bread-crumb clearfix">
         <li><a href="index.html">Home</a></li>
-        <li>Agent Details</li>
+        <li>Details</li>
       </ul>
     </div>
   </div>
@@ -86,7 +86,7 @@
 <!-- agent-details end -->
 
 <!-- funfact-section -->
-<section class="funfact-section centred" style="margin-top: 50px">
+<section class="funfact-section centred mb-5" style="margin-top: 50px">
   <div class="auto-container">
     <div
       class="inner-container wow slideInLeft animated"
@@ -135,8 +135,10 @@
           <div class="funfact-block-one">
             <div class="inner-box">
               <div class="count-outer count-box">
-                ₹<span class="count-text" data-speed="1500" data-stop="8270.23"
-                  >0</span
+                {% load indian_numbers_tags %} ₹<span
+                  class="count-text"
+                  data-speed="1500"
+                  >{{earn |floatword_indian }}</span
                 >
               </div>
               <p>Total Earnings</p>
@@ -155,7 +157,7 @@
 <!-- funfact-section end -->
 
 <!-- agents-page-section -->
-<section class="agents-page-section agent-details-page">
+<!-- <section class="agents-page-section agent-details-page">
   <div class="auto-container">
     <div class="row clearfix">
       <div class="col-lg-8 col-md-12 col-sm-12 content-side">
@@ -1272,7 +1274,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- agents-page-section end -->
 
 {% endblock content %}

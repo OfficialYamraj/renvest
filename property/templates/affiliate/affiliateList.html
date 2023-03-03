@@ -1,0 +1,98 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!--Page Title-->
+<section class="page-title-two bg-color-1 centred">
+  <div class="pattern-layer">
+    <div
+      class="pattern-1"
+      style="background-image: url(assets/images/shape/shape-9.png)"
+    ></div>
+    <div
+      class="pattern-2"
+      style="background-image: url(assets/images/shape/shape-10.png)"
+    ></div>
+  </div>
+  <div class="auto-container">
+    <div class="content-box clearfix">
+      <h1>Property Details 01</h1>
+      <ul class="bread-crumb clearfix">
+        <li><a href="index.html">Home</a></li>
+        <li>Property Details 01</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!--End Page Title-->
+
+<!-- property-details -->
+<section class="property-details property-details-one">
+  <div class="auto-container">
+    <div class="top-details clearfix">
+      <div class="left-column pull-left clearfix">
+        <h3>{{agentName}}</h3>
+        <div class="author-info clearfix">
+          <div class="author-box pull-left">
+            <h6>{{agentName}}</h6>
+          </div>
+          <ul class="rating clearfix pull-left">
+            <li><i class="icon-39"></i></li>
+            <li><i class="icon-39"></i></li>
+            <li><i class="icon-39"></i></li>
+            <li><i class="icon-39"></i></li>
+            <li><i class="icon-40"></i></li>
+          </ul>
+        </div>
+      </div>
+      <div class="right-column pull-right clearfix">
+        <div class="price-inner clearfix">
+          <ul class="category clearfix pull-left">
+            <li><a href="property-details.html">Building</a></li>
+            <li><a href="property-details.html">For Buy</a></li>
+          </ul>
+          <div class="price-box pull-right">
+            <h3>$30,000.00</h3>
+          </div>
+        </div>
+        <ul class="other-option pull-right clearfix">
+          <li>
+            <a href="property-details.html"><i class="icon-37"></i></a>
+          </li>
+          <li>
+            <a href="property-details.html"><i class="icon-38"></i></a>
+          </li>
+          <li>
+            <a href="property-details.html"><i class="icon-12"></i></a>
+          </li>
+          <li>
+            <a href="property-details.html"><i class="icon-13"></i></a>
+          </li>
+        </ul>
+      </div>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for aff in affiliates %}
+          <tr>
+            <th scope="row">1</th>
+            <td>{{aff.id}}</td>
+            <td>{{aff.aff_name}}</td>
+            <td>{{aff.created_at}}</td>
+            <td>Seen</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- property-details end -->
+
+{% endblock content %}
