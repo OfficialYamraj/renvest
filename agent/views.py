@@ -97,10 +97,11 @@ def agent_details(request, username):
         # print(request.user.id)
         if request.user.id == agentDetail.user.id:
             edit = True
-    else:
-        edit = False
+        else:
+            edit = False
     values = {
         "edit": edit,
-        'agent': agent_obj
+        'agent': agent_obj,
+        'earn': 45645689.25
     }
     return render(request, 'agent/agent-details.html', values)

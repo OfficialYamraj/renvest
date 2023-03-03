@@ -7,7 +7,7 @@ from property.models import User, Agent
 
 class Affiliate(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     aff_name = models.CharField(max_length=250)
     aff_email = models.EmailField(max_length=250)
     aff_phone = models.CharField(max_length=12)

@@ -162,6 +162,8 @@ def signout(request):
 
 
 def forgotPassword(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == "POST":
         email = request.POST.get("email")
 
