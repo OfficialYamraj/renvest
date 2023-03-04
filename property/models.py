@@ -91,8 +91,7 @@ class Property(models.Model):
     pic_02 = models.ImageField(upload_to="property_img_02")
     pic_03 = models.ImageField(upload_to="property_img_03")
     created_at = models.DateField(auto_now_add=True)
-    views = models.ManyToManyField(
-        IpModel, related_name="property_views", blank=True)
+    views = models.GenericIPAddressField()
     map = models.CharField(max_length=5000, blank=True)
 
     def __str__(self):

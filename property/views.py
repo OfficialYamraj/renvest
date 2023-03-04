@@ -12,6 +12,8 @@ from django.views.decorators.csrf import csrf_exempt
 from datetime import date, timedelta
 from django.db.models.functions import Now
 from django.core.files.storage import default_storage
+from django.db.models import Q
+
 
 DOMAIN = "127.0.0.1:8000"
 DOMAIN2 = "www.renvest.in"
@@ -269,12 +271,40 @@ def get_user_ip(request):
     return ip
 
 
+def get_ip_add(request):
+    hostname = socket.gethostname()
+    local_ip = socket.gethostbyname(hostname)
+    print(local_ip)
+    return local_ip
+    # address = request.META.get('HTTP_X_FORWARDED_FOR')
+    # if address:
+    #     ip = address.split(',')[-1].strip()
+    # else:
+    #     ip = request.META.get('REMOTE_ADDR')
+    # return ip
+
+
 def property_details(request, pk):
     property_obj = Property.objects.filter(id=pk).first()
     agency_obj = Agency.objects.filter(id=property_obj.agency_name.id).first()
 
-    ip = get_user_ip(request)
-    print(ip)
+    # l = list(property_obj.views)
+    # # l.split(",")
+    # print(l)
+
+    # result = str(get_ip_add(request))
+    # if result in l:
+    #     print("User Exist")
+    # else:
+    #     print("New User")
+    #     l.append(result + ",")
+    #     property_obj.views = l
+    #     property_obj.save()
+        # get_ip = property_obj  # imported class from model
+        # get_ip.views = result
+        # get_ip.save()
+    # new model -> proprty_id, ip, month
+    
 
     if request.method == "POST":
         date = request.POST.get('date')

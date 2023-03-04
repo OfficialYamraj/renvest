@@ -40,6 +40,12 @@ def agency_list(request):
     return render(request, 'agency/agency-list.html', {"agency_list": agency_all})
 
 
+
+
+
 def agency_details(request, agency_name):
     agency_obj = Agency.objects.filter(agency_name=agency_name).first()
+    ip = get_ip()
+    if ip  not in agency_obj.views:
+        pass
     return render(request, 'agency/agency-details.html', {'agency': agency_obj})
