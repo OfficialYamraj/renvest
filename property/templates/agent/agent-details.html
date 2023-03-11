@@ -48,7 +48,7 @@
               </div>
               <ul class="social-list pull-right clearfix">
                 <li>
-                  <a href="{{agent.facebook}}"
+                  <a href="{{agent.facebook.url}}"
                     ><i class="fab fa-facebook-f"></i
                   ></a>
                 </li>
@@ -58,7 +58,7 @@
                   ></a>
                 </li>
                 <li>
-                  <a href="agents-details.html"
+                  <a href="{{agent.instagram}}"
                     ><i class="fab fa-linkedin-in"></i
                   ></a>
                 </li>
@@ -110,7 +110,10 @@
           <div class="funfact-block-one">
             <div class="inner-box">
               <div class="count-outer count-box">
-                <span class="count-text" data-speed="1500" data-stop="2350"
+                <span
+                  class="count-text"
+                  data-speed="1500"
+                  data-stop="{{total_lead}}"
                   >0</span
                 >
               </div>

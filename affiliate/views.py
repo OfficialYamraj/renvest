@@ -27,7 +27,7 @@ def affiliateList(request, pk):
     if request.user.is_authenticated:
         agent = Agent.objects.filter(user_id=pk).first()
         print(agent.user)
-        affiliate = Affiliate.objects.filter(user=agent.user).all()
+        affiliate = reversed(Affiliate.objects.filter(user=agent.user).all())
         print(affiliate)
 
         content = {

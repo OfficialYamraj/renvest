@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import *
 from property.views import *
+from affiliate.models import *
 
 # CRUD Of Agents
 
@@ -92,6 +93,8 @@ def agent_list(request):
 
 def agent_details(request, username):
     agent_obj = Agent.objects.filter(user=username).first()
+    lead = Affiliate.objects.filter(user=username).all().count()
+    print(lead)
     if request.user.is_authenticated:
         agentDetail = Agent.objects.filter(user=request.user).first()
         # print(request.user.id)
@@ -102,6 +105,7 @@ def agent_details(request, username):
     values = {
         "edit": edit,
         'agent': agent_obj,
-        'earn': 45645689.25
+        'earn': 45645689.25,
+        'total_lead': lead
     }
     return render(request, 'agent/agent-details.html', values)

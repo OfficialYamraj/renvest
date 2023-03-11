@@ -14,7 +14,7 @@
     <!-- Fav Icon -->
     <link
       rel="icon"
-      href="{% static 'images/favicon.ico' %}"
+      href="{% static '/images/favicon.ico' %}"
       type="image/x-icon"
     />
 
@@ -54,13 +54,12 @@
     <!-- Stylesheets -->
     <link href="{% static '/css/font-awesome-all.css' %}" rel="stylesheet" />
     <link href="{% static '/css/flaticon.css' %}" rel="stylesheet" />
-    <link href="{% static '/css/owl.css' %}" rel="stylesheet" />
     <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/owl.css' %}" rel="stylesheet" />
     <link href="{% static '/css/jquery.fancybox.min.css' %}" rel="stylesheet" />
     <link href="{% static '/css/animate.css' %}" rel="stylesheet" />
     <link href="{% static '/css/jquery-ui.css' %}" rel="stylesheet" />
     <link href="{% static '/css/nice-select.css' %}" rel="stylesheet" />
-    <link href="{% static '/css/fontawesome.css' %}" rel="stylesheet" />
 
     <link
       href="{% static '/css/color/theme-color.css' %}"
@@ -184,6 +183,16 @@
                               >Agents Updatation</a
                             >
                           </li>
+                          <li>
+                            <a href="{% url 'property-list' %}"
+                              >Property List</a
+                            >
+                          </li>
+
+                          <li>
+                            <a href="{% url 'affiliate' %}">Affiliate</a>
+                          </li>
+
                           <li>
                             <a href="{% url 'property-list' %}"
                               >Property List</a
@@ -477,6 +486,7 @@
 
       {% block content %}{% endblock content %}
       <!-- subscribe-section -->
+      {% comment %}
       <section class="subscribe-section bg-color-3">
         <div
           class="pattern-layer"
@@ -514,6 +524,7 @@
           </div>
         </div>
       </section>
+      {% endcomment %}
       <!-- subscribe-section end -->
 
       <!-- main-footer -->

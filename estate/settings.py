@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@9oc&-313sw=6mv68@6#o)w0+_)tuc8c91%ble*cy06+)6sgi_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['13.127.127.240', 'localhost',
-                 'www.renvest.in', '127.0.0.1', '192.168.29.67']
+ALLOWED_HOSTS = ['13.233.25.234', 'localhost',
+                 'www.renvest.in', '127.0.0.1', '192.168.29.201']
 
 
 # Application definition
@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     "indian_numbers",
     'storages',
+    'import_export',
+    'whitenoise.runserver_nostatic',
 
 ]
 
@@ -67,7 +69,7 @@ ROOT_URLCONF = 'estate.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'property/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,13 +88,23 @@ WSGI_APPLICATION = 'estate.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'renvest',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'USER': 'root',
+        'PASSWORD': 'Manish@123',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -130,12 +142,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = '/uploaded_image/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'static')
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# STATICFILES_STORAGE = 'backend.storage.WhiteNoiseStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'property/static/uploaded_image')
@@ -147,11 +163,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp-relay.sendinblue.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'authtester0258@gmail.com'
-EMAIL_HOST_PASSWORD = 'ntyizvqxdhahbjnj'
+EMAIL_HOST_USER = 'manishsinghdewas@gmail.com'
+EMAIL_HOST_PASSWORD = '2Kpmat3AVxPZMCb8'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 

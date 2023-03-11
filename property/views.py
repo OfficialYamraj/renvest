@@ -13,6 +13,9 @@ from datetime import date, timedelta
 from django.db.models.functions import Now
 from django.core.files.storage import default_storage
 from django.db.models import Q
+from property.auth_email import *
+from property.resize import image_resize
+from PIL import Image
 
 
 DOMAIN = "127.0.0.1:8000"
@@ -20,6 +23,8 @@ DOMAIN2 = "www.renvest.in"
 
 
 def home(request):
+    # send_mail() -> test sendinBlue mail api
+    # image_resize()  # -> test of resizing images
     print("Welcome to home")
     hostname = socket.gethostname()
     local_ip = socket.gethostbyname(hostname)
@@ -27,7 +32,7 @@ def home(request):
 
     agent_obj = Agent.objects.all().first()
     propertyArray = []
-    property_obj = reversed(Property.objects.all())
+    property_obj = reversed(Property.objects.all()[:3])
     for i in property_obj:
         if i == 3:
             break
@@ -63,29 +68,13 @@ def signup(request):
                 auth_token = str(uuid.uuid4())
                 profile_obj = Profile(user=user_obj, auth_token=auth_token)
                 profile_obj.save()
-                send_email_after_registration(email, auth_token)
+                # send_email_after_registration(email, auth_token)
+                send_mail(username, email, auth_token)
 
                 return redirect('home')
         except Exception as e:
             print("Daily limit Exceed")
     return render(request, 'auth/sign-up.html')
-
-
-def send_email_after_registration(email, token):
-    subject = "Your accounts need to be verified!!"
-    n1 = "\n"
-    message = f'Hi click the link to verify your account http://{DOMAIN2}/verify/{token}'
-    email_from = settings.EMAIL_HOST_USER
-    recipient_list = [email]
-    send_mail(subject, message, email_from, recipient_list)
-
-
-def send_email_for_password(email, token, uname):
-    subject = "Your accounts need to be verified!!"
-    message = f' Hello {uname}, \n Please click the link to reset your password \n http://{DOMAIN2}/verifyforpassword/{token} \n Thanks for joining with us.\n Team Renvest'
-    email_from = settings.EMAIL_HOST_USER
-    recipient_list = [email]
-    send_mail(subject, message, email_from, recipient_list)
 
 
 def verify(request, auth_token):
@@ -123,9 +112,14 @@ def verifyforpassword(request, auth_token):
             cpassword = request.POST.get("cpassword")
 
             if password == cpassword:
+                print("Password Match")
+                print(forgot_obj.email)
                 user_obj = User.objects.filter(email=forgot_obj.email).first()
+                print(user_obj)
                 user_obj.set_password(password)
                 user_obj.save()
+                delete_pass = ForgotPassword.objects.filter(
+                    auth_token=auth_token).delete()
                 return redirect('sign-in')
 
     except Exception as e:
@@ -154,14 +148,6 @@ def signout(request):
     logout(request)
     return redirect('home')
 
-# def send_email_for_password(email, token):
-#     subject = "Your accounts need to be verified!!"
-#     n1 = "\n"
-#     message = f'Hi click the link to verify your account http://127.0.0.1:8000//verify/{token}'
-#     email_from = settings.EMAIL_HOST_USER
-#     recipient_list = [email]
-#     send_mail(subject, message, email_from, recipient_list)
-
 
 def forgotPassword(request):
     if request.user.is_authenticated:
@@ -178,29 +164,11 @@ def forgotPassword(request):
             auth_token = str(uuid.uuid4())
             forgot_obj = ForgotPassword(email=email, auth_token=auth_token)
             forgot_obj.save()
-            send_email_for_password(email, auth_token, uname)
+            print("Mail has send")
+
+            send_mail_forgot_password(uname, email, auth_token)
             return redirect('home')
     return render(request, 'auth/forgotPassword.html')
-
-
-# def resetPassword(request):
-#     if request.method == "POST":
-#         password = request.POST.get('password')
-#         cpassword = request.POST.get('cpassword')
-
-#         if password == cpassword:
-#             # forgot_obj = ForgotPassword.objects.filter(
-#             #     auth_token=auth_token).first()
-#             # if forgot_obj is not None:
-#             #     user_obj = User.objects.filter(email=forgot_obj.email).first()
-#             #     user_obj.password = password
-#             #     user_obj.save()
-#             #     return redirect('sign-in')
-#             return redirect('sign-in')
-#     else:
-#         return render(request, 'auth/reset-password.html')
-
-#     return render(request, 'auth/reset-password.html')
 
 
 def contact(request):
@@ -276,35 +244,11 @@ def get_ip_add(request):
     local_ip = socket.gethostbyname(hostname)
     print(local_ip)
     return local_ip
-    # address = request.META.get('HTTP_X_FORWARDED_FOR')
-    # if address:
-    #     ip = address.split(',')[-1].strip()
-    # else:
-    #     ip = request.META.get('REMOTE_ADDR')
-    # return ip
 
 
 def property_details(request, pk):
     property_obj = Property.objects.filter(id=pk).first()
     agency_obj = Agency.objects.filter(id=property_obj.agency_name.id).first()
-
-    # l = list(property_obj.views)
-    # # l.split(",")
-    # print(l)
-
-    # result = str(get_ip_add(request))
-    # if result in l:
-    #     print("User Exist")
-    # else:
-    #     print("New User")
-    #     l.append(result + ",")
-    #     property_obj.views = l
-    #     property_obj.save()
-        # get_ip = property_obj  # imported class from model
-        # get_ip.views = result
-        # get_ip.save()
-    # new model -> proprty_id, ip, month
-    
 
     if request.method == "POST":
         date = request.POST.get('date')
@@ -332,13 +276,3 @@ def property_list(request):
     properties = Property.objects.all()
     print(properties)
     return render(request, 'property/property-list.html', {"property": properties})
-
-
-def mapview(request):
-    obj = get_list_or_404(MapLocater, id=1)
-
-    context = {
-        'location': obj
-    }
-
-    return render(request, "measurements.html")

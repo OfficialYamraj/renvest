@@ -1,9 +1,10 @@
 from PIL import Image
 
-def resize(im, new_width):
-    width, height = im.size
-    ratio = height/width
-    new_height = int(ratio*new_width)
-    resized_image = im.resize(new_width, new_height)
-    return resized_image
 
+def image_resize(image_path):
+    image = Image.open(image_path)
+    print('images found')
+
+    image.thumbnail((720, 433))
+    image.save('image_thumbnail.jpg')
+    print(image.size)  # Output: (400, 350)

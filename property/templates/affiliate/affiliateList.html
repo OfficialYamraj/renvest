@@ -14,10 +14,10 @@
   </div>
   <div class="auto-container">
     <div class="content-box clearfix">
-      <h1>Property Details 01</h1>
+      <h1>{{agentName}} Affiliates</h1>
       <ul class="bread-crumb clearfix">
         <li><a href="index.html">Home</a></li>
-        <li>Property Details 01</li>
+        <li>Affiliates List</li>
       </ul>
     </div>
   </div>
@@ -46,11 +46,11 @@
       <div class="right-column pull-right clearfix">
         <div class="price-inner clearfix">
           <ul class="category clearfix pull-left">
-            <li><a href="property-details.html">Building</a></li>
-            <li><a href="property-details.html">For Buy</a></li>
+            <li><a href="property-details.html">Rank 12</a></li>
+            <li><a href="property-details.html">Growth 7.56 %</a></li>
           </ul>
           <div class="price-box pull-right">
-            <h3>$30,000.00</h3>
+            <h3>₹00,000.00</h3>
           </div>
         </div>
         <ul class="other-option pull-right clearfix">
@@ -63,15 +63,12 @@
           <li>
             <a href="property-details.html"><i class="icon-12"></i></a>
           </li>
-          <li>
-            <a href="property-details.html"><i class="icon-13"></i></a>
-          </li>
         </ul>
       </div>
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">S.no</th>
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Created At</th>
@@ -81,11 +78,11 @@
         <tbody>
           {% for aff in affiliates %}
           <tr>
-            <th scope="row">1</th>
+            <th scope="row">{{forloop.counter}}</th>
             <td>{{aff.id}}</td>
             <td>{{aff.aff_name}}</td>
-            <td>{{aff.created_at}}</td>
-            <td>Seen</td>
+            <td>{{aff.created_at | date:"j F, Y"}}</td>
+            <td>{{aff.status}}</td>
           </tr>
           {% endfor %}
         </tbody>
